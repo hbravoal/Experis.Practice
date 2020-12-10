@@ -1,30 +1,27 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, BrowserRouter,Redirect, Switch   } from 'react-router-dom';
-import { createHistory } from 'history';
 
-
+import LoadingOverlay from 'react-loading-overlay';
+import BounceLoader from 'react-spinners/BounceLoader';
 import Dashboard from 'Components/Layout/Dashboard';
 
-const Home = lazy(() => import('Components/Home'));
+import  Home  from 'Components/Home';
 
 
 
  
  const PrivateRoute = ({component:Component,...rest})=>(
     
-    IsAuth()  
-    ?<Route {...rest} render={(props)=>(
+    
+    <Route {...rest} render={(props)=>(
          <Component {...props}> </Component>
     )}></Route>
-    :<Redirect to="/Login"></Redirect>
+   
 
     
 )
 const Router = () => {
-    // const appHistory = useRouterHistory(createHistory)({
-    //     basename: "/Mastercard/ATuLado/Site/"
-    //   });
-      
+
  
     return ( 
     <BrowserRouter >

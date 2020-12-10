@@ -2,18 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Router from './Router';
-import App from './App';
+import CovidContext from './Context/CovidContext';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-     
+     <CovidContext>
       <Router>
-          <App />  
+          <div>hlol</div>
       </Router>
-    
+      </CovidContext>
 
-    <App />
+
   </React.StrictMode>,
   document.getElementById('root')
 );

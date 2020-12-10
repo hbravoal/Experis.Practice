@@ -1,0 +1,80 @@
+import axios from 'axios';
+
+export const  GET =  async (url,action,headers={})  => {
+    try {
+        const {data}=   await axios.get(`${url}/${action}`,headers);    
+        return {
+            Data:data,
+            Error:false
+        }
+    } catch (error) {
+        return {
+            ErrorMessage:'Ocurrió un error inesperado',
+            Error:true            
+        }
+    }
+}
+
+
+export const  POST =  async (url,baseapi,action,dataBody,headers,initialState={})  => {
+      try {
+        const result= await axios.post(`${url}/${baseapi}/${action}`,dataBody,{headers})        
+        if(!result || !result.status){
+            return  {
+                Error:true,
+                ErrorMessage:'Ha ocurrido un error de conexión, por favor intente más tarde.'
+            }
+        }
+        if(result.status===200){
+            return  {
+                Error:false,
+                Data:result.data
+            }
+        }
+      } catch (error) {
+        if(!error.response){
+            return {
+                Error:true,
+                ErrorMessage:'Ha ocurrido un error inesperado, por favor intente mas tarde.'
+                
+            }
+        }
+          if(parseInt(error.response.status)===401){
+            return {
+                Error:true,
+                ErrorMessage:'Ha finalizado la sessión',
+                StatusCode:401
+            }
+          }
+          
+            return {
+                Error:true,
+                ErrorMessage:'Ha ocurrido un error.',
+                StatusCode:parseInt(error.response.status)
+            }
+        
+          
+      }
+        
+       
+           
+        
+           
+
+       
+        //    if(!error.status){
+        //         return {
+        //             error,
+        //             ErrorMessage:'Ocurrió un error al intentar acceder al contenido.',
+        //             Error:true            
+        //         } 
+        //    }
+        //    if(error.status===401){
+        //     return {
+        //         error,
+        //         ErrorMessage:'Sessión end',
+        //         Error:true            
+        //     }  
+        //    }
+       
+}

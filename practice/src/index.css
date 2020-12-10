@@ -1,0 +1,119 @@
+*,
+*:after,
+*::before {
+  box-sizing: inherit;
+  padding: 0px;
+  margin: 0px;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Roboto", cursive;
+}
+h3{
+  text-align: center;
+}
+h2 {
+  font: normal bold 30px/72px var(--roboto);
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+p {
+  font-size: 0.8rem;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-none {
+  display: none;
+}
+.home-main{
+  background: linear-gradient(to right,#D6D6F9 0%, #DCDCF1 100%);
+}
+.main {
+  background-image: url('https://www.cdc.gov/spanish/homepage/images/covid-19-banner2-650px.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  min-height: 500px;
+  min-width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+
+}
+
+.color-white{
+  color: white;
+}
+.container {
+  max-width: 90%;
+  min-width: 90%;
+  margin: auto;
+}
+
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex-shrink: 1;
+  
+  text-align: center;
+}
+.card{
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem;
+}
+.card:hover{
+  border: 1px solid #6B727E;
+}
+.new{
+  color: black;
+}
+.newRecovered{
+  color:green;
+}
+.newDeaths{
+  color: red;
+}
+
+@media only screen and (min-width: 1024px) {
+  .header-nav .menu-mobile-icon {
+    display: none;
+  }
+}
+
+.header-nav img {
+  cursor: pointer;
+  max-height: 7.5rem;
+}
+
+@media only screen and (min-width: 480px) {
+  #menu {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #menu {
+    display: block;
+  }
+  #menu-mobile {
+    display: none;
+  }
+}
